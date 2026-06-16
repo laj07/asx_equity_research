@@ -1,0 +1,93 @@
+{
+  "company": {
+    "name": "BHP Group Limited",
+    "ticker": "BHP.AX",
+    "exchange": "ASX",
+    "sector": "Basic Materials",
+    "industry": "Diversified Mining (Iron Ore, Copper, Coal, Potash)",
+    "reporting_currency": "USD",
+    "fiscal_year_end": "30 June",
+    "shares_outstanding_m": 5382.6,
+    "share_price_aud": 57.00,
+    "aud_usd_fx": 0.655,
+    "market_cap_aud_m": 306807,
+    "description": "BHP Group is a leading global resources company, with operations spanning iron ore, copper, metallurgical and energy coal, and potash. Headquartered in Melbourne, Australia, BHP is the largest company on the ASX by market capitalisation."
+  },
+
+  "income_statement": {
+    "currency": "USDm",
+    "fy": {
+      "2025": {
+        "revenue": 51262,
+        "ebitda": 25978,
+        "depreciation_amortisation": 6500,
+        "ebit": 19478,
+        "net_finance_costs": 700,
+        "profit_before_tax": 18778,
+        "tax_expense": 7635,
+        "profit_after_tax": 11143,
+        "net_income_attributable": 9019
+      },
+      "2024": {
+        "revenue": 55658,
+        "ebitda": 29016,
+        "depreciation_amortisation": 6300,
+        "ebit": 22716,
+        "net_finance_costs": 600,
+        "profit_before_tax": 22116,
+        "tax_expense": 12515,
+        "profit_after_tax": 9601,
+        "net_income_attributable": 7897
+      }
+    },
+    "notes": "EBITDA = 'Underlying EBITDA' as reported by BHP. D&A FY24/25 are analyst estimates (BHP doesn't break out D&A as a single line in headline summary tables); EBIT = EBITDA - D&A."
+  },
+
+  "balance_sheet": {
+    "currency": "USDm",
+    "fy": {
+      "2025": {
+        "total_assets": 108790,
+        "total_equity": 52218,
+        "total_liabilities": 56572,
+        "net_debt": 12924,
+        "cash_and_equivalents": 13000,
+        "total_debt": 25924
+      },
+      "2024": {
+        "total_assets": 102362,
+        "total_equity": 49120,
+        "total_liabilities": 53242,
+        "net_debt": 9120,
+        "cash_and_equivalents": 12500,
+        "total_debt": 21620
+      }
+    },
+    "notes": "Cash and total debt are analyst estimates derived from net debt (Net Debt = Total Debt - Cash)."
+  },
+
+  "cash_flow_statement": {
+    "currency": "USDm",
+    "fy": {
+      "2025": {
+        "net_operating_cash_flow": 18692,
+        "capital_and_exploration_expenditure": 9794,
+        "free_cash_flow": 8898,
+        "dividends_paid": 6700
+      },
+      "2024": {
+        "net_operating_cash_flow": 20665,
+        "capital_and_exploration_expenditure": 9273,
+        "free_cash_flow": 11392,
+        "dividends_paid": 7700
+      }
+    },
+    "notes": "FCF = Net operating cash flow - Capex (simplified, ignores divestment proceeds and JV distributions for clarity)."
+  },
+
+  "source_documents": [
+    "BHP Group Ltd Form 6-K FY2025 (SEC EDGAR)",
+    "BHP Results for the full year ended 30 June 2025 (bhp.com, 19 Aug 2025)",
+    "BHP FY2025 Annual Report"
+  ]
+}
