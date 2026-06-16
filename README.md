@@ -170,4 +170,3 @@ The Excel model follows industry-standard color conventions:
 ## Author
 
 Built as a finance portfolio project targeting investment banking / equity research internship applications.  
-RMIT University × BITS Pilani | Software Engineering + IT
