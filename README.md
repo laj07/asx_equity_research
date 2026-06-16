@@ -1,6 +1,6 @@
-# BHP Group — ASX Equity Research Model
+# BHP Group - ASX Equity Research Model
 
-A self-contained equity research project built in Python, covering BHP Group Limited (ASX: BHP) — the world's largest diversified mining company. This project demonstrates the core quantitative skills used by junior analysts in investment banking and equity research: financial statement modelling, DCF valuation, and comparable company analysis.
+A self-contained equity research project built in Python, covering BHP Group Limited (ASX: BHP) which is the world's largest diversified mining company. This project demonstrates the core quantitative skills used by junior analysts in investment banking and equity research: financial statement modelling, DCF valuation, and comparable company analysis.
 
 > **Note:** This is a student portfolio project for educational purposes. It does not constitute investment advice.
 
@@ -55,7 +55,7 @@ Outputs land in `output/`. On a machine with internet access, `data_fetch.py` pu
 
 ---
 
-## Finance Concepts — Plain English
+## Finance Concepts (in Plain English)
 
 ### The Three Financial Statements
 
@@ -89,7 +89,8 @@ Money in the future is worth less than money today — if you had $100 now, you 
 
 ### WACC (Weighted Average Cost of Capital)
 
-The blended "hurdle rate" — what investors (debt + equity) require as a return.
+The blended "hurdle rate" is 
+what investors (debt + equity) require as a return.
 
 ```
 WACC = (E/V × Cost of Equity) + (D/V × Cost of Debt × (1 − Tax Rate))
