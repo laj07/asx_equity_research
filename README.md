@@ -30,7 +30,7 @@ asx_equity_research/
 ├── notebooks/
 │   └── BHP_Analysis.ipynb       # Jupyter notebook walkthrough
 ├── output/                      # Generated files (not committed)
-├── run.py                       # Single entry point — regenerates all outputs
+├── run.py                       # Single entry point that regenerates all outputs
 ├── requirements.txt
 └── README.md
 ```
@@ -80,11 +80,11 @@ Every public company files three core statements. This model links all three so 
 Money in the future is worth less than money today — if you had $100 now, you could invest it and have more in 5 years. We use the **WACC** (see below) as the discount rate.
 
 **Steps:**
-1. Forecast **Free Cash Flow** (FCF = Operating CF − Capex) for 5 years
+1. Forecast **Free Cash Flow** (FCF = Operating CF - Capex) for 5 years
 2. Discount each year's FCF to **Present Value**: `PV = FCF / (1 + WACC)^n`
-3. Estimate a **Terminal Value** (Gordon Growth): `TV = FCF_yr5 × (1+g) / (WACC − g)`
+3. Estimate a **Terminal Value** (Gordon Growth): `TV = FCF_yr5 × (1+g) / (WACC - g)`
 4. `Enterprise Value = Σ PV(FCFs) + PV(Terminal Value)`
-5. `Equity Value = Enterprise Value − Net Debt`
+5. `Equity Value = Enterprise Value - Net Debt`
 6. `Fair Value per Share = Equity Value / Shares Outstanding`
 
 ### WACC (Weighted Average Cost of Capital)
@@ -93,13 +93,13 @@ The blended "hurdle rate" is
 what investors (debt + equity) require as a return.
 
 ```
-WACC = (E/V × Cost of Equity) + (D/V × Cost of Debt × (1 − Tax Rate))
+WACC = (E/V × Cost of Equity) + (D/V × Cost of Debt × (1 - Tax Rate))
 Cost of Equity = Risk-Free Rate + Beta × Equity Risk Premium  [CAPM]
 ```
 
 - **Risk-Free Rate:** ~10yr Australian Government Bond yield (~4.3%)
-- **Beta:** BHP's sensitivity to the overall market (~1.05 — slightly cyclical)
-- **ERP:** Equity Risk Premium (~5.5% — extra return equities offer over bonds)
+- **Beta:** BHP's sensitivity to the overall market (~1.05: slightly cyclical)
+- **ERP:** Equity Risk Premium (~5.5%: extra return equities offer over bonds)
 - **Tax shield:** Interest payments are tax-deductible, so the effective cost of debt is reduced
 
 ### Comparable Company Analysis (Comps)
@@ -127,7 +127,7 @@ The Excel model follows industry-standard color conventions:
 
 | Color | Meaning |
 |-------|---------|
-| 🔵 **Blue text** | Hardcoded inputs — change these to flex the model |
+| 🔵 **Blue text** | Hardcoded inputs: change these to flex the model |
 | ⚫ **Black text** | Formulas calculated from inputs |
 | 🟢 **Green text** | Links pulling from source data / other sheets |
 
@@ -145,13 +145,25 @@ The Excel model follows industry-standard color conventions:
 
 ---
 
+## Challenges & Learnings
+
+This project was originally built quickly with AI assistance, then deliberately rebuilt from scratch to develop genuine understanding and exploration of the underlying logic. Parts that took the most work to actually grasp:
+
+- **Most of financial modelling is two operations, repeated.** Once I stepped back, almost every line in this model reduces to either (1) applying a margin or growth rate to a prior value, or (2) discounting a future value back to the present. Revenue → EBITDA → EBIT → Net Income is just margin math applied repeatedly down the income statement. DCF and Comps are the same discounting logic applied to different inputs. Recognising that pattern made the whole model feel a lot less like memorised formulas and more like one idea reused with different numbers.
+
+- **The balance sheet doesn't balance itself.** My first pass at the cash flow logic had cash growing unrealistically fast year over year and turned out I'd forgotten to model dividends being paid out. It's an easy thing to skip, but a good reminder that a model can run without errors and still be financially wrong.
+
+- **Terminal value carries more weight than it first appears.** In the DCF, the discounted Terminal Value made up the large majority of total Enterprise Value, with only a small fraction coming from the explicit 5-year forecast. That's a known sensitivity in DCF modelling, but it only really clicked once I saw the actual numbers and could trace why a small change in the growth assumption moves the valuation meaningfully.
+
+---
+
 ## Assumptions & Limitations
 
-- Revenue growth modelled at 2–3% p.a. — conservative for a mature large-cap miner in a stable commodity price environment
+- Revenue growth modelled at 2–3% p.a. is conservative for a mature large-cap miner in a stable commodity price environment
 - EBITDA margin tapers from FY25's 51% toward BHP's 20-year average of ~50%
 - Capex held elevated at ~17% of revenue to reflect BHP's stated FY26–27 capex guidance (~US$11bn/yr) for the Jansen potash project
 - Cash flow forecast is simplified: ignores working capital movements, JV distributions and divestment proceeds
-- Peer multiples are illustrative estimates for educational purposes — a real research report would source these from Bloomberg/FactSet
+- Peer multiples are illustrative estimates for educational purposes, a real research report would source these from Bloomberg/FactSet
 - The DCF result is highly sensitive to WACC and terminal growth rate assumptions (see sensitivity table in the PDF memo)
 
 ---
